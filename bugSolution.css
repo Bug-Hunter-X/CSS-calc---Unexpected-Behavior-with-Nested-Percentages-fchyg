@@ -1,0 +1,13 @@
+To solve the issue of unexpected behavior when using `calc()` with nested percentages, it's crucial to ensure the percentage is calculated relative to the correct parent element.  In this case, using `vw` units can explicitly set the reference point to the viewport width.
+
+```css
+.container {
+  width: 50vw;
+}
+
+.inner {
+  width: calc(50vw - 10px);
+}
+```
+
+By using `vw` for the container's width, the `calc()` function will correctly subtract 10px from 50% of the viewport width, which gives more predictable results.  Alternatively, more complex solutions might involve using JavaScript to dynamically calculate the width based on the parent element's dimensions.
