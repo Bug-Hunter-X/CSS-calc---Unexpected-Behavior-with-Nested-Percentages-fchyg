@@ -1,0 +1,13 @@
+The CSS property `calc()` can sometimes lead to unexpected results when dealing with percentages within nested calculations. For example, the following CSS might not render as expected:
+
+```css
+.container {
+  width: 50%;
+}
+
+.inner {
+  width: calc(50% - 10px);
+}
+```
+
+The `calc(50% - 10px)` might not subtract the 10px correctly from the 50% of the *container's* width, but rather from the 50% of the *viewport* width.
